@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 
+
 const SPEED = 300
 const JUMP_VELOCITY = -500
 enum state {idle, move_right, jump_up, jump_down, hurt}
@@ -13,7 +14,6 @@ var direction
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
-	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	var direction = Input.get_axis("left", "right")
@@ -65,8 +65,7 @@ func update_animation(direction):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-
-
+	
 
 func _on_area_2d_body_entered(body: Node2D):
 	get_tree().change_scene_to_file("res://game_over.tscn")

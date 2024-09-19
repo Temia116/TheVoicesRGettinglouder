@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://kav1gjkhh5qb"]
+[gd_scene load_steps=4 format=3 uid="uid://kav1gjkhh5qb"]
 
 [ext_resource type="Script" path="res://game_over.gd" id="1_17ou4"]
+[ext_resource type="Texture2D" uid="uid://dbmi1vib5uqly" path="res://output (3).jpg" id="2_f3wlq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8s60v"]
+font_size = 100
 
 [node name="Game_over" type="Control"]
 layout_mode = 3
@@ -12,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_17ou4")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 offset_right = 379.0
 offset_bottom = 66.0
 scale = Vector2(3.03012, 3.73214)
@@ -28,6 +33,21 @@ text = "Retry?
 layout_mode = 2
 text = "Quit?
 "
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 316.0
+offset_right = 1370.0
+offset_bottom = 790.0
+text = "GAME OVER!"
+label_settings = SubResource("LabelSettings_8s60v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(572.5, 327)
+scale = Vector2(1.12207, 0.632813)
+texture = ExtResource("2_f3wlq")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

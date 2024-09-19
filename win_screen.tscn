@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2m8ji184o7ys"]
+
+[ext_resource type="Script" path="res://win_screen.gd" id="1_0o44t"]
+[ext_resource type="Texture2D" uid="uid://ccwv0j7gwqr16" path="res://output (11).jpg" id="1_ltggk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r7kyv"]
+font_size = 35
+
+[node name="win screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0o44t")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 379.0
+offset_bottom = 66.0
+scale = Vector2(3.03012, 3.73214)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="retry" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Retry
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(575.5, 321.5)
+scale = Vector2(1.12012, 0.62793)
+texture = ExtResource("1_ltggk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 253.0
+offset_right = -468.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Congrats!
+you escaped darrens lab"
+label_settings = SubResource("LabelSettings_r7kyv")
+uppercase = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
